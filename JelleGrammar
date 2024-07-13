@@ -1,0 +1,19 @@
+# Jelle Grammar
+# Lexical sturcutre: progam is a sequence of statements
+
+<s> ::= (<actionState> | <assignState>) ';' [<s>]
+<actionState> ::= <inputState> | <displayState>
+<inputState> ::= 'input' <id> {<id>}
+<displayState> ::= 'display' ('"'<string>'"' | <id>) {','('"'<string>'"' | <id>)}
+<assignState> ::= <id> '=' <E>
+<E> ::= <E> <addop> <E1> | <E1>
+<E1> ::= <E1> <mulop> <E2> | <E2>
+<E2> ::= <addop> <E3> | <E3>
+<E3> ::= <E4> <expop> <E3> | <E4>
+<E4> ::= <number> | <id> | '(' <E> ')'
+<addop> ::= '+'| '-'
+<mulop> ::= '*' | '/' | '%'
+<expop> ::= '^'
+<number> ::= <digit> {<digit>} ['.'] {<digit>} | {<digit>} ['.'] {<digit>} <digit>
+<digit> ::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+ 
